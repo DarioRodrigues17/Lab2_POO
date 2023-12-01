@@ -1,4 +1,4 @@
-package com.bmcl.hero;
+package org.example.hero;
 
 public class Position {
     private int x;

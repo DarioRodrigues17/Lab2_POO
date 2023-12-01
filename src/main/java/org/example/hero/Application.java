@@ -1,4 +1,4 @@
-package com.bmcl.hero;
+package org.example.hero;
 
 import java.io.IOException;
 

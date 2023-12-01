@@ -1,4 +1,4 @@
-package com.bmcl.hero;
+package org.example.hero;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 

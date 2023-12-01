@@ -1,4 +1,4 @@
-package com.bmcl.hero;
+package org.example.hero;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -17,9 +17,9 @@ public class Game {
         Terminal terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(width, heigt)).createTerminal();
         screen = new TerminalScreen(terminal);
 
-        screen.setCursorPosition(null);   // we don't need a cursor
-        screen.startScreen();             // screens must be started
-        screen.doResizeIfNecessary();     // resize screen if necessary
+        screen.setCursorPosition(null);
+        screen.startScreen();
+        screen.doResizeIfNecessary();
 
         arena = new Arena(width, heigt);
     }
@@ -30,34 +30,13 @@ public class Game {
         screen.refresh();
     }
 
-    private void processKey(KeyStroke key) {
+    private void processKey(KeyStroke key)
+    {
         arena.processKey(key);
     }
 
-    //Exemplo basico sem controlo de velocidade
-
     public void run() throws IOException {
-        while (true) {
-            draw();
-            KeyStroke key = screen.pollInput(); //Não fica à espera de teclas, vai armazenando num buffer, devolve null se nenhuma tecla está no buffer
-            if (key != null) {
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
-                    screen.close();
-                if (key.getKeyType() == KeyType.EOF)
-                    break;
-                processKey(key);
-
-            }
-            arena.moveMonsters();
-            arena.verifyMonsterCollisions();
-
-        }
-    }
-
-    //Exemplo com controlo de velocidade
-      /*
-    public void run() throws IOException {
-        int FPS = 20;
+        int FPS = 25;
         int frameTime = 1000 / FPS;
         long lastMonsterMovement = 0;
 
@@ -65,7 +44,7 @@ public class Game {
             long startTime = System.currentTimeMillis();
 
             draw();
-            KeyStroke key = screen.pollInput(); //Não fica à espera de teclas, vai armazenando num buffer, devolve null se nenhuma tecla está no buffer
+            KeyStroke key = screen.pollInput();
             if (key != null) {
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
                     screen.close();
@@ -75,8 +54,7 @@ public class Game {
 
             }
 
-
-            if (startTime - lastMonsterMovement > 500) {
+            if (startTime - lastMonsterMovement > 505) {
                 arena.moveMonsters();
                 arena.verifyMonsterCollisions();
                 lastMonsterMovement = startTime;
@@ -92,5 +70,5 @@ public class Game {
 
 
         }
-    }*/
+    }
 }
