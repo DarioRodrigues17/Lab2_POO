@@ -38,7 +38,6 @@ public class Arena {
             coins.add(new Coin(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
         return coins;
     }
-
     private List<Monster> createMonsters() {
         Random random = new Random();
         ArrayList<Monster> monsters = new ArrayList<>();
@@ -46,7 +45,6 @@ public class Arena {
             monsters.add(new Monster(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
         return monsters;
     }
-
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
 
